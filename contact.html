@@ -1,20 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Same head as index.html -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | Jafsal M A</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Same header as index.html -->
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">jafsal<span>@dev</span></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="experience.html">Experience</a></li>
+                    <li><a href="education.html">Education</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
     <main>
         <section class="section">
             <div class="container">
                 <div class="section-title">
                     <h2>Get In Touch</h2>
+                    <p>Feel free to reach out through any of these channels</p>
+                </div>
+                
+                <div class="contact-options">
+                    <div class="contact-card">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                        <p>Send me a direct email</p>
+                        <a href="mailto:jfzlma@gmail.com" class="btn contact-btn">
+                            <i class="fas fa-paper-plane"></i> jfzlma@gmail.com
+                        </a>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <i class="fab fa-whatsapp"></i>
+                        <h3>WhatsApp</h3>
+                        <p>Chat with me directly</p>
+                        <a href="https://wa.me/919633062855" class="btn contact-btn whatsapp-btn" target="_blank">
+                            <i class="fab fa-whatsapp"></i> +91 96330 62855
+                        </a>
+                    </div>
                 </div>
                 
                 <div class="contact-form">
+                    <h3>Or send me a message directly</h3>
                     <form>
                         <div class="form-group">
                             <label for="name">Name</label>
@@ -38,6 +77,16 @@
         </section>
     </main>
 
-    <!-- Same footer as index.html -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://linkedin.com/in/jfzlma" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/jfzlma" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:jfzlma@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://wa.me/919633062855" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p class="copyright">&copy; 2024 Jafsal M A. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
