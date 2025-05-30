@@ -6,13 +6,14 @@
     <title>Jafsal M A - Software Engineer</title>
     <style>
         :root {
-            --primary: #2c3e50;
-            --secondary: #34495e;
-            --accent: #3498db;
-            --light: #ecf0f1;
-            --dark: #2c3e50;
-            --text: #333;
-            --text-light: #7f8c8d;
+            --primary: #1e1e1e;
+            --secondary: #2d2d2d;
+            --accent: #4fc3f7;
+            --accent-dark: #0288d1;
+            --text: #e0e0e0;
+            --text-light: #b0b0b0;
+            --code-bg: #282c34;
+            --success: #69f0ae;
         }
         
         * {
@@ -22,303 +23,531 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Fira Code', 'Consolas', monospace;
             line-height: 1.6;
             color: var(--text);
-            background-color: #f9f9f9;
-            padding: 0;
-            margin: 0;
+            background-color: var(--primary);
+            overflow-x: hidden;
         }
         
+        /* Terminal-like styling */
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
         
         header {
-            background-color: var(--primary);
-            color: white;
-            padding: 30px 0;
-            text-align: center;
-            margin-bottom: 30px;
+            background-color: var(--secondary);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--accent-dark);
+            position: relative;
         }
         
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        
-        .contact-info {
+        .header-content {
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 15px;
+            justify-content: space-between;
+            align-items: center;
         }
         
-        .contact-info a {
-            color: var(--light);
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--success);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: var(--text);
             text-decoration: none;
             transition: color 0.3s;
+            position: relative;
         }
         
-        .contact-info a:hover {
+        nav ul li a:hover {
             color: var(--accent);
         }
         
-        .section {
-            margin-bottom: 30px;
-            background: white;
-            padding: 25px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent);
+            transform: scaleX(0);
+            transition: transform 0.3s;
         }
         
-        h2 {
-            color: var(--primary);
-            border-bottom: 2px solid var(--accent);
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            font-size: 1.8rem;
+        nav ul li a:hover::after {
+            transform: scaleX(1);
         }
         
-        h3 {
-            color: var(--secondary);
-            margin: 15px 0 10px;
-            font-size: 1.3rem;
-        }
-        
-        .job-title {
+        .hero {
+            height: 80vh;
             display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            margin-bottom: 5px;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
         }
         
-        .company {
-            font-weight: bold;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(31, 31, 31, 0.8) 0%, rgba(0, 0, 0, 0.9) 100%);
+            z-index: -1;
         }
         
-        .date {
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        
+        .hero h1 span {
+            color: var(--success);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
             color: var(--text-light);
-            font-style: italic;
         }
         
-        ul {
-            padding-left: 20px;
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--accent);
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        
+        .btn:hover {
+            background-color: var(--accent-dark);
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            margin-left: 15px;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--accent);
+            color: var(--primary);
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--accent);
+            display: inline-block;
+            position: relative;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background-color: var(--accent);
+            bottom: -10px;
+            left: 25%;
+        }
+        
+        .card {
+            background-color: var(--secondary);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .card h3 {
+            color: var(--accent);
             margin-bottom: 15px;
+            font-size: 1.5rem;
         }
         
-        li {
+        .card .date {
+            color: var(--text-light);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .card ul {
+            margin-top: 15px;
+        }
+        
+        .card ul li {
             margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .card ul li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
         }
         
         .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
         }
         
         .skill-category {
-            flex: 1;
-            min-width: 250px;
+            background-color: var(--secondary);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
-        .skill-category h4 {
-            color: var(--secondary);
-            margin-bottom: 10px;
-            font-size: 1.1rem;
+        .skill-category h3 {
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
         }
         
         .skill-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 10px;
         }
         
         .skill-tag {
-            background-color: var(--light);
-            padding: 5px 10px;
-            border-radius: 3px;
+            background-color: var(--code-bg);
+            color: var(--accent);
+            padding: 5px 15px;
+            border-radius: 20px;
             font-size: 0.9rem;
+            border: 1px solid var(--accent-dark);
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background-color: var(--secondary);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .project-img {
+            height: 200px;
+            background-color: var(--code-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 3rem;
+        }
+        
+        .project-content {
+            padding: 25px;
+        }
+        
+        .project-content h3 {
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+        
+        .project-content p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--accent);
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--secondary);
+            border: 1px solid var(--accent-dark);
+            border-radius: 4px;
+            color: var(--text);
+            font-family: inherit;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
         }
         
         footer {
+            background-color: var(--secondary);
+            padding: 30px 0;
             text-align: center;
-            padding: 20px;
-            background-color: var(--primary);
-            color: white;
-            margin-top: 30px;
+            border-top: 1px solid var(--accent-dark);
         }
         
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .social-links a {
+            color: var(--text);
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent);
+        }
+        
+        .copyright {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        /* Terminal window effect */
+        .terminal {
+            background-color: var(--code-bg);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 40px 0;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        
+        .terminal-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .terminal-btn {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        .terminal-btn.red {
+            background-color: #ff5f56;
+        }
+        
+        .terminal-btn.yellow {
+            background-color: #ffbd2e;
+        }
+        
+        .terminal-btn.green {
+            background-color: #27c93f;
+        }
+        
+        .terminal-title {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-left: 10px;
+        }
+        
+        .terminal-body {
+            font-family: 'Fira Code', monospace;
+        }
+        
+        .command {
+            color: var(--success);
+        }
+        
+        .comment {
+            color: var(--text-light);
+            font-style: italic;
+        }
+        
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background-color: var(--accent);
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        /* Responsive styles */
         @media (max-width: 768px) {
-            .job-title {
+            .header-content {
                 flex-direction: column;
             }
             
-            .date {
-                margin-top: 5px;
+            nav ul {
+                margin-top: 20px;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .btn {
+                display: block;
+                width: 100%;
+                text-align: center;
+                margin-bottom: 15px;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+            }
+            
+            .project-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Header/Navigation -->
     <header>
-        <div class="container">
-            <h1>JAFSAL M A</h1>
-            <p>Software Engineer | Web Scraping Expert | IoT Developer</p>
-            <div class="contact-info">
-                <a href="tel:+919633062855">+91-9633062855</a>
-                <a href="mailto:jfzlma@gmail.com">jfzlma@gmail.com</a>
-                <a href="https://linkedin.com/in/jfzlma" target="_blank">linkedin.com/in/jfzlma</a>
-                <a href="https://github.com/jfzlma" target="_blank">github.com/jfzlma</a>
-            </div>
+        <div class="container header-content">
+            <a href="index.html" class="logo">jafsal<span>@dev</span></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="experience.html">Experience</a></li>
+                    <li><a href="education.html">Education</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
-    
-    <div class="container">
-        <section class="section">
-            <h2>PROFESSIONAL SUMMARY</h2>
-            <p>Results-driven Software Engineer with over 5 years of experience specializing in developing Edge modules for IoT gateways and proficiently scraping data from e-commerce websites. Skilled in Python, Scrapy, BeautifulSoup, Requests, C++, and CMake, with proven expertise in delivering robust solutions. Demonstrates a strong aptitude for problem-solving and collaborative teamwork, thriving in agile and PLM environments. Successfully working remotely for nearly 4 years, showcasing adaptability and efficiency in distributed team settings.</p>
-        </section>
-        
-        <section class="section">
-            <h2>PROFESSIONAL EXPERIENCE</h2>
-            
-            <div class="job">
-                <div class="job-title">
-                    <span class="company">PST.AG, Weimar, Germany</span>
-                    <span class="date">2024 – Present</span>
+
+    <!-- Main Content (different for each page) -->
+    <main>
+        <!-- Home Page -->
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>Hi, I'm <span>Jafsal M A</span></h1>
+                <p>Software Engineer specializing in Web Scraping, IoT Development, and Data Engineering with over 5 years of professional experience building robust solutions.</p>
+                <div>
+                    <a href="experience.html" class="btn">View Experience</a>
+                    <a href="contact.html" class="btn btn-outline">Contact Me</a>
                 </div>
-                <p><em>Python Developer - Web scraping expert (Remote)</em></p>
-                <ul>
-                    <li>Proficient Python Developer specialising in web scraping with expertise in libraries such as BeautifulSoup, Scrapy, and Selenium.</li>
-                    <li>Experienced in designing and implementing efficient scraping strategies for diverse websites and sources.</li>
-                    <li>Skilled in utilising ScrapydWeb for spider management, ensuring seamless deployment and monitoring.</li>
-                    <li>Proficient in project management with Jira, facilitating task tracking and team collaboration.</li>
-                    <li>Effective communicator, utilising Mattermost for team discussions, updates, and coordination.</li>
-                    <li>Strong problem-solving skills, adept at handling challenges related to website structure changes and data quality issues.</li>
-                </ul>
-                <p><strong>Tools used:</strong> Python, scrapy, scrapyd, scrapydweb, selenium, pandas, numpy, xml, Jira, Mattermost, gather, WWT, gitlab, etc.</p>
-            </div>
-            
-            <div class="job">
-                <div class="job-title">
-                    <span class="company">Shopalyst Technologies, Trivandrum, Kerala, India</span>
-                    <span class="date">2021 – 2024</span>
-                </div>
-                <p><em>Software Engineer II - Data Operations and Engineering</em></p>
-                <ul>
-                    <li>Spearhead the development and management of scalable spiders for global e-commerce websites using Python scrapy, selenium, BeautifulSoup, requests, and Golang.</li>
-                    <li>Implement robust data storage solutions using Elasticsearch, Cassandra, and files, ensuring top-notch data quality.</li>
-                    <li>Conduct reverse engineering of Android apps to extract APIs and leverage them for efficient data scraping.</li>
-                    <li>Automate various work processes, including report generation and data processing, through expertly crafted scripts.</li>
-                    <li>Writing Bash scripts and scheduling cron and Jenkins jobs in the Linux environment.</li>
-                </ul>
-                <p><strong>Tools used:</strong> Scrapy, Selenium, golang, pandas, numpy, rabbitma, browserstack, lambdatest, shell scripts, linux, slack, proxy managers, github, asana, zoho, elasticsearch, kibana, jenkins, etc.</p>
-            </div>
-            
-            <div class="job">
-                <div class="job-title">
-                    <span class="company">Tata Consultancy Services, Kochi, Kerala, India</span>
-                    <span class="date">2020 – 2021</span>
-                </div>
-                <p><em>IoT Edge Developer</em></p>
-                <ul>
-                    <li>Collaborated closely with a prominent Dutch defence, shipbuilding, and engineering conglomerate, developing cutting-edge Edge modules for gateways and Azure communication.</li>
-                    <li>Successfully integrated Azure services like Azure IoT Hub and Azure IoT Edge into the company's infrastructure.</li>
-                    <li>Configured gateways for seamless and efficient communication with Azure IoT services.</li>
-                    <li>Spearheaded the implementation of CI/CD pipelines for Azure deployment, utilising Git and Azure DevOps.</li>
-                    <li>Developing and maintaining Edge modules using C++, CMake, and Docker.</li>
-                </ul>
-            </div>
-            
-            <div class="job">
-                <div class="job-title">
-                    <span class="company">Tata Consultancy Services, Chennai, Tamilnadu, India</span>
-                    <span class="date">2018 – 2020</span>
-                </div>
-                <p><em>System Engineer</em></p>
-                <ul>
-                    <li>Leveraged Python libraries such as scrapy, BeautifulSoup, and requests to effectively scrape data from various websites, with a primary focus on e-commerce platforms.</li>
-                    <li>Ensured seamless product attribute enrichment by meticulously maintaining and updating crawlers.</li>
-                    <li>Conducted in-depth data analysis, extracting valuable insights from the scraped data.</li>
-                    <li>Improved overall efficiency by automating diverse processes, including report generation and validation, through well-crafted Python scripts.</li>
-                </ul>
             </div>
         </section>
-        
+
         <section class="section">
-            <h2>EDUCATION</h2>
-            <div class="job-title">
-                <span class="company">NSS College of Engineering, University of Calicut, Palakkad, Kerala, India</span>
-                <span class="date">2014-2018</span>
-            </div>
-            <p><em>Bachelor of Technology, Computer Science and Engineering</em></p>
-            <ul>
-                <li>Developed a remote system to monitor structural health of old buildings using ESP32 microcontroller, Raspberry Pi, Adafruit VL6180X, IP Camera, telegram bot, Firebase</li>
-            </ul>
-        </section>
-        
-        <section class="section">
-            <h2>PUBLICATIONS</h2>
-            <p><strong>Different Approaches To Crack Monitoring of Buildings Using IOT</strong></p>
-            <p>DRASET Publications · Aug 4, 2018</p>
-            <p><a href="https://www.ijraset.com/fileserve.php?FID=17620" target="_blank">https://www.ijraset.com/fileserve.php?FID=17620</a></p>
-        </section>
-        
-        <section class="section">
-            <h2>SKILLS</h2>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h4>Programming Languages</h4>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">C++</span>
-                        <span class="skill-tag">Golang</span>
-                        <span class="skill-tag">SQL</span>
+            <div class="container">
+                <div class="terminal">
+                    <div class="terminal-header">
+                        <div class="terminal-btn red"></div>
+                        <div class="terminal-btn yellow"></div>
+                        <div class="terminal-btn green"></div>
+                        <div class="terminal-title">bash — 80×24</div>
                     </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h4>Web Scraping & Data Engineering</h4>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Scrapy</span>
-                        <span class="skill-tag">BeautifulSoup</span>
-                        <span class="skill-tag">Selenium</span>
-                        <span class="skill-tag">XPath</span>
-                        <span class="skill-tag">Pandas</span>
-                        <span class="skill-tag">Elasticsearch</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h4>Cloud & DevOps</h4>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Azure DevOps</span>
-                        <span class="skill-tag">Azure IoT Edge</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">CI/CD</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h4>Tools & Platforms</h4>
-                    <div class="skill-tags">
-                        <span class="skill-tag">GitLab</span>
-                        <span class="skill-tag">GitHub</span>
-                        <span class="skill-tag">Jira</span>
-                        <span class="skill-tag">Jenkins</span>
+                    <div class="terminal-body">
+                        <p><span class="command">$ whoami</span></p>
+                        <p>jafsal-ma</p>
+                        <p><span class="command">$ cat about.txt</span></p>
+                        <p>Results-driven Software Engineer with expertise in:</p>
+                        <p>- Web Scraping (Scrapy, BeautifulSoup, Selenium)</p>
+                        <p>- IoT Development (C++, Azure IoT, Edge modules)</p>
+                        <p>- Data Engineering (Elasticsearch, Cassandra, ETL)</p>
+                        <p><span class="command">$ skills --list</span></p>
+                        <p>Python | C++ | Golang | Scrapy | Azure | Docker | CI/CD</p>
+                        <p><span class="command">$ _<span class="cursor"></span></span></p>
                     </div>
                 </div>
             </div>
         </section>
-    </div>
-    
+    </main>
+
+    <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2024 Jafsal M A. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/jfzlma" target="_blank">LinkedIn</a>
+                <a href="https://github.com/jfzlma" target="_blank">GitHub</a>
+                <a href="mailto:jfzlma@gmail.com">Email</a>
+            </div>
+            <p class="copyright">&copy; 2024 Jafsal M A. All rights reserved.</p>
         </div>
     </footer>
 </body>
