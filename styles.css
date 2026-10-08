@@ -113,7 +113,7 @@ h1, h2, h3, h4, p { margin-top: 0; }
 .hero-footnote { position: absolute; bottom: 27px; left: 0; right: 0; display: flex; justify-content: space-between; color: #929b95; font: 9px/1 var(--mono); letter-spacing: .05em; text-transform: uppercase; }
 
 .intro-strip { background: var(--dark); color: white; }
-.intro-grid { min-height: 125px; display: grid; grid-template-columns: repeat(4, 1fr); align-items: center; }
+.intro-grid { min-height: 125px; display: grid; grid-template-columns: repeat(3, 1fr); align-items: center; }
 .intro-grid p { margin: 0; padding-left: 27px; border-left: 1px solid #ffffff22; }
 .intro-grid p:first-child { padding-left: 0; border-left: 0; }
 .intro-grid strong, .intro-grid span { display: block; }
