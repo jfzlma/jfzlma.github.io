@@ -1,79 +1,233 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jafsal M A - Software Engineer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style/style.css">
-</head>
-<body>
-    <!-- Header/Navigation -->
-    <header>
-        <div class="container header-content">
-            <a href="index.html" class="logo">jafsal<span>@dev</span></a>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="experience.html">Experience</a></li>
-                    <li><a href="education.html">Education</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#101b1a">
+    <meta
+      name="description"
+      content="Jafsal M A is a senior data engineer and technical lead building reliable data ingestion and automation systems."
+    >
+    <title>Jafsal M A — Data Engineer &amp; Technical Lead</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="wordmark" href="#top" aria-label="Jafsal M A, home">JM<span>.</span></a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="header-link" href="cv-jafsal-m-a-base-2026-10-06.pdf" target="_blank" rel="noopener">
+        Download CV <span aria-hidden="true">↗</span>
+      </a>
     </header>
 
-    <!-- Main Content (different for each page) -->
-    <main>
-        <!-- Home Page -->
-        <section class="hero">
-            <div class="container hero-content">
-                <h1>Hi, I'm <span>Jafsal M A</span></h1>
-                <p>Software Engineer specializing in Web Scraping, IoT Development, and Data Engineering with over 5 years of professional experience building robust solutions.</p>
-                <div>
-                    <a href="experience.html" class="btn">View Experience</a>
-                    <a href="contact.html" class="btn btn-outline">Contact Me</a>
-                </div>
-            </div>
-        </section>
+    <main id="top">
+      <section class="hero page-width" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="status-dot"></span> Based in Kerala, India · Working worldwide</p>
+          <h1 id="hero-title">I build the systems<br>that <span>move data forward.</span></h1>
+          <p class="hero-intro">
+            I’m Jafsal — a senior data engineer and technical lead focused on large-scale
+            data ingestion, web crawling, and dependable automation.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#experience">Explore my work <span aria-hidden="true">↓</span></a>
+            <a class="text-link" href="mailto:jfzlma@gmail.com">Let’s talk <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="hero-socials" aria-label="Social links">
+            <a href="https://github.com/jfzlma" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+            <a href="https://www.linkedin.com/in/jfzlma/" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a>
+            <a href="https://jafsal.dev" target="_blank" rel="noopener">jafsal.dev <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="art-orbit orbit-one"></div>
+          <div class="art-orbit orbit-two"></div>
+          <div class="art-core">
+            <span class="core-mark">JM</span>
+            <span class="core-caption">DATA<br>IN MOTION</span>
+          </div>
+          <span class="art-label label-top">INGEST</span>
+          <span class="art-label label-right">TRANSFORM</span>
+          <span class="art-label label-bottom">DELIVER</span>
+          <span class="art-cross cross-one">+</span>
+          <span class="art-cross cross-two">+</span>
+          <span class="art-cross cross-three">+</span>
+        </div>
+        <div class="hero-footnote"><span>01 / 04</span><span>Engineering the path from source to insight</span></div>
+      </section>
 
-        <section class="section">
-            <div class="container">
-                <div class="terminal">
-                    <div class="terminal-header">
-                        <div class="terminal-btn red"></div>
-                        <div class="terminal-btn yellow"></div>
-                        <div class="terminal-btn green"></div>
-                        <div class="terminal-title">bash — 80×24</div>
-                    </div>
-                    <div class="terminal-body">
-                        <p><span class="command">$ whoami</span></p>
-                        <p>jafsal-ma</p>
-                        <p><span class="command">$ cat about.txt</span></p>
-                        <p>Results-driven Software Engineer with expertise in:</p>
-                        <p>- Web Scraping (Scrapy, BeautifulSoup, Selenium)</p>
-                        <p>- IoT Development (C++, Azure IoT, Edge modules)</p>
-                        <p>- Data Engineering (Elasticsearch, Cassandra, ETL)</p>
-                        <p><span class="command">$ skills --list</span></p>
-                        <p>Python | C++ | Golang | Scrapy | Azure | Docker | CI/CD</p>
-                        <p><span class="command">$ _<span class="cursor"></span></span></p>
-                    </div>
-                </div>
+      <section class="intro-strip" aria-label="Professional highlights">
+        <div class="page-width intro-grid">
+          <p><strong>7+ years</strong><span>building data systems</span></p>
+          <p><strong>100+</strong><span>production scraping projects</span></p>
+          <p><strong>Millions</strong><span>of records processed</span></p>
+          <p><strong>4 engineers</strong><span>led and mentored</span></p>
+        </div>
+      </section>
+
+      <section class="section page-width about-section" id="about" aria-labelledby="about-title">
+        <div class="section-heading">
+          <p class="eyebrow">A little about me</p>
+          <h2 id="about-title">Practical engineering.<br><span>Meaningful scale.</span></h2>
+        </div>
+        <div class="about-copy">
+          <p>
+            I work across the full data lifecycle: sourcing and crawling, transformation,
+            validation, and reliable delivery. My background spans Python ETL pipelines,
+            distributed storage, and the operational tooling that keeps data products moving.
+          </p>
+          <p>
+            Alongside leading teams and delivery, I’m exploring agentic AI — building
+            automation agents with the Hermes framework, MCP, and Mattermost.
+          </p>
+          <div class="focus-tags" aria-label="Areas of focus">
+            <span>Data engineering</span><span>Web crawling</span><span>ETL orchestration</span><span>Agentic AI</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section experience-section" id="experience" aria-labelledby="experience-title">
+        <div class="page-width">
+          <div class="section-heading section-heading-row">
+            <div>
+              <p class="eyebrow">Where I’ve been</p>
+              <h2 id="experience-title">Experience</h2>
             </div>
-        </section>
+            <span class="section-index">01 — 04</span>
+          </div>
+          <div class="timeline">
+            <article class="role">
+              <div class="role-date">FEB 2024 — NOW</div>
+              <div class="role-content">
+                <div class="role-topline"><h3>Python Developer / Team Lead</h3><span class="role-type">Current</span></div>
+                <p class="role-company">PST.AG <span>· Weimar, Germany (Remote)</span></p>
+                <p class="role-focus">Data Engineering &amp; Web Scraping</p>
+                <ul>
+                  <li>Lead Python backend tooling for an ecosystem of 100+ production scraping projects.</li>
+                  <li>Owned the Data Operations ETL lifecycle — crawling, transformation, validation, and automated delivery in SAP XML, E4H XML, and other formats.</li>
+                  <li>Built high-volume pipelines across ArangoDB and Elasticsearch, with Apache NiFi and Airflow orchestration.</li>
+                  <li>Lead and mentor a four-engineer team; currently building Hermes-based automation agents with MCP and Mattermost.</li>
+                </ul>
+                <div class="tech-list">Python <span>/</span> Apache NiFi <span>/</span> Airflow <span>/</span> ArangoDB <span>/</span> Elasticsearch <span>/</span> Docker</div>
+              </div>
+            </article>
+            <article class="role">
+              <div class="role-date">APR 2021 — JAN 2024</div>
+              <div class="role-content">
+                <h3>Software Engineer II</h3>
+                <p class="role-company">Shopalyst Technologies <span>· Trivandrum, India</span></p>
+                <p class="role-focus">Data Operations &amp; Engineering</p>
+                <ul>
+                  <li>Architected Python and Go backend systems processing millions of records daily.</li>
+                  <li>Reverse-engineered Android applications and integrated discovered REST APIs into structured data pipelines.</li>
+                  <li>Built data-quality verification and operated distributed workflows using Spark, Elasticsearch, Cassandra, and RabbitMQ.</li>
+                </ul>
+                <div class="tech-list">Python <span>/</span> Go <span>/</span> Spark <span>/</span> Cassandra <span>/</span> RabbitMQ</div>
+              </div>
+            </article>
+            <article class="role">
+              <div class="role-date">DEC 2020 — MAR 2021</div>
+              <div class="role-content">
+                <h3>IoT Edge Developer</h3>
+                <p class="role-company">Tata Consultancy Services <span>· Kochi, India</span></p>
+                <ul>
+                  <li>Built modular C++ services for Azure IoT Edge and delivered Dockerized services with automated Azure DevOps builds.</li>
+                </ul>
+                <div class="tech-list">C++ <span>/</span> Azure IoT Edge <span>/</span> Docker <span>/</span> Azure DevOps</div>
+              </div>
+            </article>
+            <article class="role">
+              <div class="role-date">DEC 2018 — NOV 2020</div>
+              <div class="role-content">
+                <h3>System Engineer</h3>
+                <p class="role-company">Tata Consultancy Services <span>· Chennai, India</span></p>
+                <ul>
+                  <li>Developed Python ETL crawlers and parsing workflows for e-commerce data supporting analytics and ML feature pipelines.</li>
+                </ul>
+                <div class="tech-list">Python <span>/</span> Scrapy <span>/</span> BeautifulSoup <span>/</span> Pandas</div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section page-width projects-section" id="projects" aria-labelledby="projects-title">
+        <div class="section-heading section-heading-row">
+          <div>
+            <p class="eyebrow">Selected work</p>
+            <h2 id="projects-title">Building, learning,<br><span>shipping.</span></h2>
+          </div>
+          <span class="section-index">02 — 04</span>
+        </div>
+        <div class="project-card">
+          <div class="project-number">01</div>
+          <div class="project-details">
+            <p class="project-kicker">FULL-STACK · AI-ASSISTED DEVELOPMENT</p>
+            <h3>Rapid prototyping &amp; AI-assisted tooling</h3>
+            <p>
+              Built a full-stack food ordering web app, owning its interface, backend logic,
+              data persistence, and deployment.
+            </p>
+            <div class="project-meta"><span>Firebase Studio</span><span>Antigravity</span></div>
+          </div>
+          <a class="project-link" href="https://dev.theplato.in" target="_blank" rel="noopener" aria-label="Visit the food ordering app">↗</a>
+        </div>
+        <div class="skills-block">
+          <div class="skills-heading">
+            <p class="eyebrow">Tools of the trade</p>
+            <h3>My toolkit</h3>
+          </div>
+          <div class="skills-grid">
+            <div><h4>Data &amp; orchestration</h4><p>Python, SQL, Apache NiFi, Airflow, Spark, ETL/ELT, data validation</p></div>
+            <div><h4>Collection &amp; APIs</h4><p>Scrapy, BeautifulSoup, Selenium, Playwright, REST, GraphQL</p></div>
+            <div><h4>Storage &amp; messaging</h4><p>Elasticsearch, Cassandra, ArangoDB, PostgreSQL, MongoDB, RabbitMQ</p></div>
+            <div><h4>Infrastructure</h4><p>Docker, Linux, Git, Jenkins, GitLab CI/CD, Azure, Azure IoT</p></div>
+            <div><h4>Languages</h4><p>Python, Go, SQL, Java, C++, Bash</p></div>
+            <div><h4>Exploring now</h4><p>Hermes agents, MCP, Databricks, Delta Lake, Kubernetes</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section education-section" aria-labelledby="education-title">
+        <div class="page-width education-grid">
+          <div class="section-heading">
+            <p class="eyebrow">The foundations</p>
+            <h2 id="education-title">Education &amp;<br><span>writing.</span></h2>
+          </div>
+          <div class="education-content">
+            <article class="education-item">
+              <span class="education-date">2014 — 2018</span>
+              <div><h3>B.Tech, Computer Science &amp; Engineering</h3><p>NSS College of Engineering · University of Calicut</p></div>
+            </article>
+            <article class="education-item publication">
+              <span class="education-date">AUG 2018</span>
+              <div><h3>Different Approaches To Crack Monitoring of Buildings Using IoT</h3><p>IJRASET Publications</p></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-section page-width" id="contact" aria-labelledby="contact-title">
+        <p class="eyebrow">Have a data challenge?</p>
+        <h2 id="contact-title">Let’s make it<br><span>work better.</span></h2>
+        <a class="contact-email" href="mailto:jfzlma@gmail.com">jfzlma@gmail.com <span aria-hidden="true">↗</span></a>
+        <div class="contact-links">
+          <a href="tel:+91-9633062855">+91 96330 62855</a>
+          <a href="https://www.linkedin.com/in/jfzlma/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a href="https://github.com/jfzlma" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </section>
     </main>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="https://linkedin.com/in/jfzlma" target="_blank">LinkedIn</a>
-                <a href="https://github.com/jfzlma" target="_blank">GitHub</a>
-                <a href="mailto:jfzlma@gmail.com">Email</a>
-            </div>
-            <p class="copyright">&copy; 2024 Jafsal M A. All rights reserved.</p>
-        </div>
+    <footer class="site-footer page-width">
+      <a class="wordmark" href="#top">JM<span>.</span></a>
+      <p>Designed &amp; built with care · <span id="year">2026</span></p>
+      <a href="#top">Back to top ↑</a>
     </footer>
-</body>
+  </body>
 </html>
