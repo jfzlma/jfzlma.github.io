@@ -1,0 +1,32 @@
+---
+/* Cycles the colour scheme: follows the OS until clicked, then remembers the choice. */
+---
+
+<button class="theme-toggle no-print" type="button" data-theme-toggle aria-label="Toggle dark mode">
+  <span aria-hidden="true">◐</span> <span data-theme-label>theme</span>
+</button>
+
+<script>
+  const button = document.querySelector<HTMLButtonElement>("[data-theme-toggle]");
+  const label = button?.querySelector<HTMLElement>("[data-theme-label]");
+  const media = window.matchMedia("(prefers-color-scheme: dark)");
+  const current = () =>
+    (document.documentElement.dataset.theme as "light" | "dark" | undefined) ??
+    (media.matches ? "dark" : "light");
+  const render = () => {
+    if (!button || !label) return;
+    const theme = current();
+    label.textContent = theme;
+    button.setAttribute("aria-pressed", String(theme === "dark"));
+  };
+  button?.addEventListener("click", () => {
+    const next = current() === "dark" ? "light" : "dark";
+    document.documentElement.dataset.theme = next;
+    try {
+      localStorage.setItem("theme", next);
+    } catch {}
+    render();
+  });
+  media.addEventListener("change", render);
+  render();
+</script>

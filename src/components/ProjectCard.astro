@@ -1,0 +1,27 @@
+---
+import type { CollectionEntry } from "astro:content";
+import TagList from "./TagList.astro";
+import { formatMonth, displayUrl } from "../lib/format";
+
+interface Props {
+  project: CollectionEntry<"projects">;
+}
+const { title, description, stack, links, status, date } = Astro.props.project.data;
+const meta = [date && formatMonth(date), status].filter(Boolean).join(" · ");
+---
+
+<article class="project">
+  <header class="entry-head">
+    <h3 class="entry-title">{title}</h3>
+    {meta && <p class="entry-dates">{meta}</p>}
+  </header>
+  <p class="project-desc">{description}</p>
+  <TagList tags={stack} label={`${title} stack`} />
+  {links.length > 0 && (
+    <ul class="project-links">
+      {links.map((link) => (
+        <li><a href={link.url} rel="noopener">{displayUrl(link.label)}</a></li>
+      ))}
+    </ul>
+  )}
+</article>

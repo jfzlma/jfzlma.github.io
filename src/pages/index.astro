@@ -1,0 +1,142 @@
+---
+import { getCollection, getEntry, render } from "astro:content";
+import Base from "../layouts/Base.astro";
+import Section from "../components/Section.astro";
+import Entry from "../components/Entry.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import ThemeToggle from "../components/ThemeToggle.astro";
+import { formatMonth, formatRange, displayUrl } from "../lib/format";
+
+const profile = (await getEntry("profile", "main"))!.data;
+const skills = (await getEntry("skills", "main"))!.data;
+const education = (await getEntry("education", "main"))!.data;
+
+// Newest role first; current roles (no end date) sort above finished ones that started the same month.
+const jobs = await Promise.all(
+  (await getCollection("experience"))
+    .sort((a, b) => b.data.start.localeCompare(a.data.start) || (a.data.end ? 1 : 0) - (b.data.end ? 1 : 0))
+    .map(async (job) => ({ ...job.data, Content: (await render(job)).Content })),
+);
+
+// Featured first, then newest dated, then undated; ties by title.
+const projects = (await getCollection("projects")).sort(
+  (a, b) =>
+    Number(b.data.featured) - Number(a.data.featured) ||
+    (b.data.date ?? "").localeCompare(a.data.date ?? "") ||
+    a.data.title.localeCompare(b.data.title),
+);
+
+const title = `${profile.name} — ${profile.headline}`;
+const description = profile.summary.split(/(?<=\.)\s/)[0];
+---
+
+<Base title={title} description={description}>
+  <header class="masthead">
+    <div class="masthead-bar">
+      <p class="prompt no-print" aria-hidden="true">~/{profile.handle} <span class="prompt-sign">$</span> whoami</p>
+      <ThemeToggle />
+    </div>
+    <h1 class="name">{profile.name}</h1>
+    <p class="headline">{profile.headline}</p>
+    <p class="location">{profile.location}</p>
+    <ul class="header-links">
+      <li><a href={`mailto:${profile.email}`}>{profile.email}</a></li>
+      {profile.links.map((link) => (
+        <li><a href={link.url} rel="me noopener">{displayUrl(link.url)}</a></li>
+      ))}
+      {profile.resume && (
+        <li class="no-print"><a class="resume-link" href={profile.resume} download>Download resume (PDF)</a></li>
+      )}
+    </ul>
+  </header>
+
+  <main id="main">
+    <Section id="summary" title="Summary">
+      <p class="summary">{profile.summary}</p>
+    </Section>
+
+    <Section id="experience" title="Experience">
+      {jobs.map(({ role, company, location, start, end, Content }) => (
+        <Entry title={role} subtitle={company} meta={location} dates={formatRange(start, end)}>
+          <Content />
+        </Entry>
+      ))}
+    </Section>
+
+    {projects.length > 0 && (
+      <Section id="projects" title="Projects">
+        {projects.map((project) => <ProjectCard project={project} />)}
+      </Section>
+    )}
+
+    <Section id="skills" title="Skills">
+      <dl class="skills">
+        {skills.categories.map((category) => (
+          <div class="skill-row">
+            <dt>{category.name}</dt>
+            <dd>
+              {category.skills.map((skill, i) => (
+                <>
+                  <span class="skill">
+                    {skill.name}
+                    {"level" in skill && skill.level && <span class="skill-level"> ({skill.level})</span>}
+                    {"years" in skill && skill.years && <span class="skill-level"> · {skill.years}y</span>}
+                  </span>
+                  {i < category.skills.length - 1 && ", "}
+                </>
+              ))}
+              {category.note && <span class="skill-note"> — {category.note}</span>}
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </Section>
+
+    <Section id="education" title="Education">
+      {education.degrees.map((degree) => (
+        <Entry
+          title={degree.degree}
+          subtitle={degree.institution}
+          meta={degree.location}
+          dates={formatRange(degree.start, degree.end)}
+        />
+      ))}
+      {education.publications.length > 0 && (
+        <>
+          <h3 class="subhead">Publications</h3>
+          <ul class="plain-list">
+            {education.publications.map((pub) => (
+              <li>
+                {pub.url ? <a href={pub.url}>“{pub.title}”</a> : <>“{pub.title}”</>}
+                <span class="muted">, {pub.publisher}, {formatMonth(pub.date)}</span>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+    </Section>
+
+    <Section id="contact" title="Contact">
+      <dl class="contact">
+        <div class="contact-row">
+          <dt>Email</dt>
+          <dd><a href={`mailto:${profile.email}`}>{profile.email}</a></dd>
+        </div>
+        {profile.links.map((link) => (
+          <div class="contact-row">
+            <dt>{link.label}</dt>
+            <dd><a href={link.url} rel="me noopener">{displayUrl(link.url)}</a></dd>
+          </div>
+        ))}
+        <div class="contact-row">
+          <dt>Location</dt>
+          <dd>{profile.location}</dd>
+        </div>
+      </dl>
+    </Section>
+  </main>
+
+  <footer class="footer no-print">
+    <p>© {new Date().getFullYear()} {profile.name}</p>
+  </footer>
+</Base>

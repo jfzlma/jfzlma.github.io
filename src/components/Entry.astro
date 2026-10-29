@@ -1,0 +1,25 @@
+---
+/** One dated item: a job, a degree. Body content goes in the default slot. */
+interface Props {
+  title: string;
+  subtitle?: string;
+  meta?: string;
+  dates?: string;
+}
+const { title, subtitle, meta, dates } = Astro.props;
+---
+
+<article class="entry">
+  <header class="entry-head">
+    <h3 class="entry-title">{title}</h3>
+    {dates && <p class="entry-dates">{dates}</p>}
+  </header>
+  {(subtitle || meta) && (
+    <p class="entry-sub">
+      {subtitle && <span class="entry-org">{subtitle}</span>}
+      {subtitle && meta && <span aria-hidden="true"> · </span>}
+      {meta && <span class="entry-meta">{meta}</span>}
+    </p>
+  )}
+  <div class="entry-body"><slot /></div>
+</article>
