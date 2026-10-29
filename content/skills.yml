@@ -1,0 +1,112 @@
+# One category per entry. A skill is either a plain name or { name, level?, years? }.
+# Adding a skill = adding one line under the right category.
+categories:
+  - name: Languages
+    skills:
+      - { name: Python, level: Advanced }
+      - SQL
+      - Golang
+      - Java
+      - C++
+      - Bash
+  - name: Data Ingestion & ETL
+    skills:
+      - ETL/ELT workflows
+      - Apache NiFi
+      - Apache Airflow
+      - Apache Spark (PySpark)
+      - Large-scale ingestion pipelines
+      - Workflow orchestration
+      - Multi-source data acquisition
+      - API reverse-engineering
+      - Android app reverse-engineering
+      - Scrapy spiders
+      - Scrapyd
+      - Web crawling
+  - name: Anti-bot & Scraping Resilience
+    skills:
+      - Anti-bot countermeasures
+      - Browser fingerprinting
+      - Headless-browser evasion
+      - CAPTCHA bypass
+      - User-agent rotation
+      - Rate-limit handling
+      - Proxy rotation and tunnelling
+      - Dynamic (JavaScript-rendered) content
+  - name: Web & Parsing
+    skills:
+      - Scrapy
+      - BeautifulSoup
+      - Selenium
+      - Playwright
+      - Appium
+      - curl_cffi
+      - HTML
+      - JavaScript
+      - XPath
+      - CSS selectors
+      - Regular expressions
+      - pandas
+      - RESTful APIs
+      - GraphQL APIs
+  - name: Agentic AI
+    skills:
+      - Hermes Agent framework
+      - MCP (Model Context Protocol)
+      - Automation agents
+  - name: Big Data & Storage
+    skills:
+      - Distributed storage
+      - Partitioning
+      - Indexing
+      - Schema evolution
+      - Elasticsearch
+      - Cassandra
+      - ArangoDB
+      - PostgreSQL
+      - MySQL
+      - MongoDB
+      - RabbitMQ
+      - Time-series databases
+  - name: Infrastructure & DataOps
+    skills:
+      - Docker
+      - Linux
+      - CI/CD (GitLab, Jenkins, Azure DevOps)
+      - Git
+      - Cron
+      - Jira
+  - name: Cloud & Platforms
+    skills:
+      - Azure
+      - Azure IoT Hub
+      - Azure IoT Edge
+      - Firebase
+  - name: Data Governance
+    skills:
+      - Data lineage
+      - Data contracts
+      - Scenario-based validation (BDD)
+      - QA
+      - PII/compliance
+      - Logging & fault analysis
+  - name: Methodologies
+    skills:
+      - Agile/Scrum
+      - BDD
+      - System design
+      - Code reviews
+      - Architecture documentation
+      - Training sessions
+      - Project planning & execution
+  - name: Actively Learning
+    skills:
+      - Databricks (Delta Lake, Unity Catalog)
+      - Medallion architecture (bronze/silver/gold)
+      - Azure Data Factory
+      - Kubernetes
+  - name: Spoken Languages
+    skills:
+      - { name: English, level: Fluent }
+      - { name: Malayalam, level: Native }
+      - { name: Tamil, level: Beginner }

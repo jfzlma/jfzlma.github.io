@@ -1,0 +1,21 @@
+# Header, summary and contact details. Validated by src/content.config.ts.
+name: Jafsal M A
+headline: Senior Python Developer · Technical Lead · Data Engineering & Web Scraping
+location: Kerala, India
+handle: jafsal # used for the small `~/jafsal` prompt in the header
+email: jfzlma@gmail.com
+summary: >-
+  Senior Data Engineer and Technical Lead with 7+ years building large-scale web
+  crawling systems and Python ETL pipelines, delivering production-grade ingestion,
+  transformation, and automated delivery at 100Ks-to-millions-of-records scale.
+  Experienced leading data operations teams end-to-end — from crawling through
+  client-format delivery (SAP XML, E4H XML) — and currently moving into agentic AI,
+  building automation agents on the Hermes framework.
+links:
+  - label: GitHub
+    url: https://github.com/jfzlma
+  - label: LinkedIn
+    url: https://www.linkedin.com/in/jfzlma/
+  - label: Website
+    url: https://jafsal.dev
+resume: /resume/jafsal-m-a-resume.pdf
