@@ -7,6 +7,8 @@ end: 2024-01
 ---
 
 - Architected Python and Golang backend systems that processed millions of records daily, improving pipeline throughput and operational reliability
+- Built and operated the core data-collection backbone powering multiple downstream products, including brand landing pages (live, cross-retailer pricing per product) and a brand insights dashboard (competitor benchmarking, market trends, share-of-voice, and custom reports)
+- Ran full catalog, product, and review crawls, plus share-of-voice (SOV) crawls, across web, mobile web, and native app surfaces to keep multi-brand datasets current
 - Reverse-engineered Android applications, including SSL-pinned apps, to discover internal endpoints and integrate RESTful APIs into structured pipelines, using BrowserStack and LambdaTest for cross-device testing and validation
 - Built Appium crawlers that captured product-page screenshots and product data from 5-6 mobile apps on a LambdaTest virtual device across 10-12 locations, for client delivery
 - Designed and enforced automated verification pipelines and data quality checks to ensure correctness across extracted datasets

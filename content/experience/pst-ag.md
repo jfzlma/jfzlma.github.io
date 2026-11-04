@@ -7,6 +7,7 @@ start: 2024-02
 ---
 
 - Led design and delivery of Python backend tooling for a scraping ecosystem of 100+ production projects, improving ingestion throughput and downstream data readiness for analytics
+- Delivered trade-compliance datasets — customs tariff schedules, tariff measures, and sanctions/denied-party data — sourced across a wide variety of projects and shipped to clients in SAP, E4H, and S4H formats
 - Led the Data Operations team for one year, owning the full ETL project lifecycle — crawling, transformation, validation, and automated delivery — with outputs delivered to clients in SAP XML, E4H XML, and other structured formats
 - Led a team of 4 engineers, conducting code reviews, mentoring, and driving internal tooling and performance optimization POCs
 - Built and scaled ingestion pipelines across distributed storage (ArangoDB, Elasticsearch) to process high-volume multi-source feeds with fault tolerance and schema evolution support

@@ -49,6 +49,15 @@ categories:
       - pandas
       - RESTful APIs
       - GraphQL APIs
+  - name: Traffic Analysis & API Tooling
+    skills:
+      - Fiddler
+      - mitmproxy
+      - Burp Suite
+      - Postman
+      - HTTPie
+      - BrowserStack
+      - LambdaTest
   - name: Agentic AI
     skills:
       - Hermes Agent framework
@@ -72,7 +81,7 @@ categories:
     skills:
       - Docker
       - Linux
-      - CI/CD (GitLab, Jenkins, Azure DevOps)
+      - CI/CD (GitLab, GitHub Actions, Jenkins, Azure DevOps Pipelines)
       - Git
       - Cron
       - Jira
@@ -81,6 +90,7 @@ categories:
       - Azure
       - Azure IoT Hub
       - Azure IoT Edge
+      - AWS (EC2, IoT Greengrass)
       - Firebase
   - name: Data Governance
     skills:

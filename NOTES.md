@@ -96,3 +96,30 @@ general-purpose CV, and its content matches `cv.md`. Differences from the websit
 
 To make the PDF match the site exactly, regenerate it from career-ops after adding the Appium
 bullet to `cv.md`, then replace the file. Alternatively, print the site with Ctrl/Cmd+P.
+
+## 2026-11-04 sync
+
+`cv.md` was edited again (23 Oct → 4 Nov 2026). Diffed the new version against the content below
+and merged in what was new, keeping everything added since 29 Oct that `cv.md` doesn't contradict
+(Appium bullet, merged NiFi/Airflow wording, Apache Spark/Android-reverse-engineering skills,
+Web Applications Portfolio project).
+
+- **Experience**: added the trade-compliance datasets bullet (SAP/E4H/S4H) to PST.AG; added two
+  Shopalyst bullets (brand landing pages + insights dashboard; catalog/product/review/SOV crawls
+  across web, mobile web, native) ahead of the existing Appium bullet, which was kept since it's
+  more specific and isn't contradicted; added the Damen vessel-systems bullet to the TCS IoT Edge
+  role; replaced the TCS System Engineer's first bullet with `cv.md`'s more specific
+  Grainger.com/Zoro.com wording.
+- **Skills**: added a new "Traffic Analysis & API Tooling" category (Fiddler, mitmproxy, Burp
+  Suite, Postman, HTTPie, BrowserStack, LambdaTest); added `AWS (EC2, IoT Greengrass)` to Cloud &
+  Platforms; widened the CI/CD entry to `(GitLab, GitHub Actions, Jenkins, Azure DevOps
+  Pipelines)`.
+- **Projects**: added four projects from `cv.md` that weren't on the site yet — `curl-to-scrapy`,
+  `crawlops`, `scrapy-legacy-ssl`, `tv-tools` (all link to their GitHub repos; none marked
+  featured). Updated the food-ordering-app link from `dev.theplato.in` to `theplato.in` per
+  `cv.md`. Left "Web Applications Portfolio" in place even though `cv.md` no longer lists it —
+  it predates `cv.md`'s project list (see "Assumptions" above) and nothing said to remove it;
+  revisit if that project should actually come down.
+- **Not touched**: `public/resume/jafsal-m-a-resume.pdf` is still the 18 Oct base PDF. No newer
+  general-purpose (non-tailored) PDF exists in `career-ops/output/` as of this sync — only
+  role-tailored re-renders. Regenerate it from career-ops once a new base PDF exists.

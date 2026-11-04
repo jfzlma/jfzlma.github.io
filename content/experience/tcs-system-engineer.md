@@ -6,6 +6,6 @@ start: 2018-12
 end: 2020-11
 ---
 
-- Developed Python ETL crawlers using Scrapy and BeautifulSoup to extract, clean, and transform e-commerce data supporting downstream analytics and ML feature pipelines
+- Owned the full catalog-enrichment pipeline — collection, cleaning, and push — for Grainger.com and Zoro.com (US e-commerce), using Scrapy and BeautifulSoup to pull product attribute data from vendor websites and update the client catalog database
 - Built parsing and feature-extraction logic that improved data completeness and reduced downstream cleaning effort, using regular expressions and pandas
 - Documented crawling workflows, contributed to code review processes, and supported knowledge transfer to maintainable scraping codebases
