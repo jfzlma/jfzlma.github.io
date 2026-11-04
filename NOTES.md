@@ -156,3 +156,15 @@ explicit choice, this CV now takes over that domain:
 - `firebase.json` in this repo is unrelated: it's a generic Firebase Hosting config for optionally
   deploying *this* Astro site's `dist/` elsewhere, not the config for the old Next.js site (which
   lives in a different, separate codebase/Firebase project).
+
+**Side effect discovered after the fact:** setting a custom domain on the `jfzlma.github.io` user
+page cascades to *every other GitHub Pages project repo* under the account — confirmed via the
+API that `curl-to-scrapy`'s Pages config picked up `jafsal.dev/curl-to-scrapy/` as its canonical
+URL with no change to that repo. `jfzlma.github.io/curl-to-scrapy/` now 301s to
+`jafsal.dev/curl-to-scrapy/`, which 404s until the DNS cutover above is done (the old Next.js site
+there has nothing at that path). Checked the other project repos (`crawlops`, `scrapy-legacy-ssl`,
+`tv-tools`) — none have Pages enabled, so they're unaffected. User chose to let `curl-to-scrapy`
+move to `jafsal.dev` too; `content/projects/curl-to-scrapy.md`'s live link and the matching line
+in `career-ops/cv.md` were updated to `https://jafsal.dev/curl-to-scrapy/` accordingly. If a future
+project repo gets its own Pages site and should *not* inherit `jafsal.dev`, give that repo its own
+`CNAME` file pointing back at `jfzlma.github.io` to opt out of the cascade.

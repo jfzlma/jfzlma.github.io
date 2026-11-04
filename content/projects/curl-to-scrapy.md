@@ -5,6 +5,6 @@ stack: [JavaScript]
 links:
   - label: GitHub
     url: https://github.com/jfzlma/curl-to-scrapy
-  - label: jfzlma.github.io/curl-to-scrapy
-    url: https://jfzlma.github.io/curl-to-scrapy/
+  - label: jafsal.dev/curl-to-scrapy
+    url: https://jafsal.dev/curl-to-scrapy/
 ---
