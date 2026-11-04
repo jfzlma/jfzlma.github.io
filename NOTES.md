@@ -123,3 +123,36 @@ Web Applications Portfolio project).
 - **Not touched**: `public/resume/jafsal-m-a-resume.pdf` is still the 18 Oct base PDF. No newer
   general-purpose (non-tailored) PDF exists in `career-ops/output/` as of this sync — only
   role-tailored re-renders. Regenerate it from career-ops once a new base PDF exists.
+
+## 2026-11-04: GitHub Pages source was set to the legacy Jekyll branch build
+
+`https://jfzlma.github.io/` was serving the repo's `README.md` (rendered by Jekyll) instead of
+this site. Pages was configured with `build_type: "legacy"` (deploy from the `main` branch root),
+even though `.github/workflows/deploy.yml` already builds and uploads the Astro `dist/` as a Pages
+artifact. Fixed by setting the Pages source to `build_type: "workflow"` via the API
+(`gh api -X PUT repos/jfzlma/jfzlma.github.io/pages -f build_type=workflow`) and re-running the
+workflow. If this ever regresses, check **Settings → Pages → Build and deployment → Source** is
+"GitHub Actions", not "Deploy from a branch".
+
+## 2026-11-04: moved the canonical domain to jafsal.dev
+
+`jafsal.dev` was previously a *different*, already-live site — a Next.js app on Firebase Hosting
+(A record `199.36.158.100`, Cloudflare-managed DNS, TXT `hosting-site=jafsal-dev`). At the user's
+explicit choice, this CV now takes over that domain:
+
+- Added `public/CNAME` (`jafsal.dev`) so it ships in every build's `dist/`.
+- `astro.config.mjs` default `site` and `.github/workflows/deploy.yml`'s `SITE_URL` both changed
+  from `https://jfzlma.github.io` to `https://jafsal.dev`.
+- Removed the self-referential "Website → jafsal.dev" link from `content/profile.yml` (the site
+  itself is now served there, so linking to it from its own header no longer makes sense).
+- Set the custom domain on the GitHub Pages config via
+  `gh api -X PUT repos/jfzlma/jfzlma.github.io/pages -f cname=jafsal.dev`.
+- DNS still needs to be repointed at Cloudflare from Firebase's IP to GitHub Pages' IPs (see the
+  user-facing instructions given at the time; not duplicated here). Once that propagates and
+  GitHub finishes issuing the TLS cert, `https_enforced` should be turned back on for the custom
+  domain.
+- The old Next.js/Firebase site at `jafsal.dev` stops being reachable at that domain once DNS
+  cuts over — it wasn't deleted anywhere, just no longer pointed to from this domain.
+- `firebase.json` in this repo is unrelated: it's a generic Firebase Hosting config for optionally
+  deploying *this* Astro site's `dist/` elsewhere, not the config for the old Next.js site (which
+  lives in a different, separate codebase/Firebase project).
